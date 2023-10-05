@@ -6,7 +6,7 @@ _10/3/2023_
 Post Your Work on GitHub
 
 ### Description
-This project is designed to demonstrate the proficiency in using Git and GitHub for version control with a simulated workflow to refactor Project 2. 
+This project is designed to demonstrate the proficiency in using Git and GitHub for version control with a simulated workflow to refactor Project 2. By  creating a GitHub repository and a local repository, making multiple branches, and making edits to files on those branches  Then committing the changes to the respective branches and pushing them to the remote repository on GitHub
 
 ### Files used
 bikeshare.py

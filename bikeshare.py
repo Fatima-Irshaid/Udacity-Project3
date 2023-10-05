@@ -183,24 +183,24 @@ def user_stats(df):
     
 
 def display_raw_data(df):
-    print("\nTime for checking raw data \n")
-    index=0
-    Answer = input("Raw data is ready to check, would you like to diplay 5 rows of them now ? , please answer yes or no.").lower()
-    while Answer !="yes" and Answer !="no":
-       print("Invalid answer! please answer yes or no.")
-       Answer = input("Raw data is ready to check, would you like to diplay 5 rows of them now ?, please answer yes or no.").lower()
-    if Answer == "no":
-         print("Alright, thank you.")
-                    
+    print("\nTime for checking raw data\n")
+    index = 0
+    answer = input("Raw data is ready to check. Would you like to display 5 rows of them now? Please answer yes or no: ").lower()
+    
+    while answer != "yes" and answer != "no":
+        print("Invalid answer! Please answer yes or no.")
+        answer = input("Raw data is ready to check. Would you like to display 5 rows of them now? Please answer yes or no: ").lower()
+    
+    if answer == "no":
+        print("Alright, thank you.")
     else:
-       while index+5 < df.shape[0]:
-           print(df.iloc[index:index+5])
-           index += 5
-           Answer = input(" would you like to diplay the next 5 rows of raw data ? , please answer yes or no.").lower()
-           if Answer == "no":
-               print("Alright! Thank you.")
-               break
+        while index + 5 < df.shape[0]:
+            print(df.iloc[index:index+5])
+            index += 5
+            answer = input("Would you like to display the next 5 rows of raw data? Please answer yes or no: ").lower()
             
+            if answer == "no":
+                print("Alright! Thank you.")
           
 def main():
     while True:

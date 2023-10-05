@@ -124,21 +124,20 @@ def station_stats(df):
     print('-'*40)
   
 
-def trip_duration_stats(df):
+def trip_duration_stats(trip_durations):
     """Displays statistics on the total and average trip duration."""
-
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    # TO DO: display total travel time
-    total_trip_duration=df["Trip Duration"].sum().round()
-    print('\nThe total travel_time is: {}\n'.format(total_trip_duration))
+    # Calculate total travel time
+    total_trip_duration = sum(trip_durations).round()
+    print(f'\nThe total travel time is: {total_trip_duration}\n')
 
-    # TO DO: display mean travel time
-    mean_trip_duration=df['Trip Duration'].mean().round()
-    print('\nThe mean travel_time is: {}\n'.format(mean_trip_duration))
+    # Calculate mean travel time
+    mean_trip_duration = np.mean(trip_durations).round()
+    print(f'\nThe mean travel time is: {mean_trip_duration}\n')
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print(f"\nThis took {time.time() - start_time} seconds.")
     print('-'*40)
 
 

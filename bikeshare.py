@@ -124,21 +124,20 @@ def station_stats(df):
     print('-'*40)
   
 
-def trip_duration_stats(df):
+def trip_duration_stats(trip_durations):
     """Displays statistics on the total and average trip duration."""
-
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    # TO DO: display total travel time
-    total_trip_duration=df["Trip Duration"].sum().round()
-    print('\nThe total travel_time is: {}\n'.format(total_trip_duration))
+    # Calculate total travel time
+    total_trip_duration = sum(trip_durations).round()
+    print(f'\nThe total travel time is: {total_trip_duration}\n')
 
-    # TO DO: display mean travel time
-    mean_trip_duration=df['Trip Duration'].mean().round()
-    print('\nThe mean travel_time is: {}\n'.format(mean_trip_duration))
+    # Calculate mean travel time
+    mean_trip_duration = np.mean(trip_durations).round()
+    print(f'\nThe mean travel time is: {mean_trip_duration}\n')
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print(f"\nThis took {time.time() - start_time} seconds.")
     print('-'*40)
 
 
@@ -183,24 +182,24 @@ def user_stats(df):
     
 
 def display_raw_data(df):
-    print("\nTime for checking raw data \n")
-    index=0
-    Answer = input("Raw data is ready to check, would you like to diplay 5 rows of them now ? , please answer yes or no.").lower()
-    while Answer !="yes" and Answer !="no":
-       print("Invalid answer! please answer yes or no.")
-       Answer = input("Raw data is ready to check, would you like to diplay 5 rows of them now ?, please answer yes or no.").lower()
-    if Answer == "no":
-         print("Alright, thank you.")
-                    
+    print("\nTime for checking raw data\n")
+    index = 0
+    answer = input("Raw data is ready to check. Would you like to display 5 rows of them now? Please answer yes or no: ").lower()
+    
+    while answer != "yes" and answer != "no":
+        print("Invalid answer! Please answer yes or no.")
+        answer = input("Raw data is ready to check. Would you like to display 5 rows of them now? Please answer yes or no: ").lower()
+    
+    if answer == "no":
+        print("Alright, thank you.")
     else:
-       while index+5 < df.shape[0]:
-           print(df.iloc[index:index+5])
-           index += 5
-           Answer = input(" would you like to diplay the next 5 rows of raw data ? , please answer yes or no.").lower()
-           if Answer == "no":
-               print("Alright! Thank you.")
-               break
+        while index + 5 < df.shape[0]:
+            print(df.iloc[index:index+5])
+            index += 5
+            answer = input("Would you like to display the next 5 rows of raw data? Please answer yes or no: ").lower()
             
+            if answer == "no":
+                print("Alright! Thank you.")
           
 def main():
     while True:
